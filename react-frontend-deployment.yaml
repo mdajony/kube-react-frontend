@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: frontend-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            component: frontend-deployment
+    template:
+        metadata:
+            labels:
+                component: frontend-deployment
+        spec:
+            containers:
+                - name: frontend
+                  image: techserve4u/react-frontend:0.0.1
+                  ports:
+                    - containerPort: 80
